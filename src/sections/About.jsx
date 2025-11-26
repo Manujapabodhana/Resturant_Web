@@ -56,7 +56,15 @@ const About = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            whileHover={{
+                                scale: [null, 1.05, 1.1],
+                                transition: {
+                                    duration: 0.5,
+                                    times: [0, 0.6, 1],
+                                    ease: ["easeInOut", "easeOut"]
+                                }
+                            }}
+                            transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                             style={{
                                 display: 'flex',
                                 gap: '1.5rem',
@@ -64,7 +72,8 @@ const About = () => {
                                 padding: '2rem',
                                 backgroundColor: '#f9f9f9',
                                 borderRadius: 'var(--border-radius)',
-                                boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+                                boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                                cursor: 'pointer'
                             }}
                         >
                             <div style={{ color: 'var(--color-accent)' }}>

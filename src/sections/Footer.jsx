@@ -58,9 +58,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div style={{ borderTop: '1px solid #333', paddingTop: '2rem', textAlign: 'center', color: '#666' }}>
-                    <p>&copy; {new Date().getFullYear()} Gourmet Haven. All rights reserved.</p>
-                </div>
+                
             </div>
         </footer>
     );

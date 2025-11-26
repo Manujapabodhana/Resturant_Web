@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import DishCard from '../components/DishCard';
 import dish1 from '../assets/dish1.png';
 import dish2 from '../assets/dish2.png';
 import dish3 from '../assets/dish3.png';
@@ -46,40 +47,7 @@ const Gallery = () => {
 
                 <div className="grid grid-3" style={{ gap: '2rem' }}>
                     {dishes.map((dish, index) => (
-                        <motion.div
-                            key={dish.id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            style={{
-                                backgroundColor: '#fff',
-                                borderRadius: 'var(--border-radius)',
-                                overflow: 'hidden',
-                                boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
-                            }}
-                        >
-                            <div style={{ height: '250px', overflow: 'hidden' }}>
-                                <img
-                                    src={dish.image}
-                                    alt={dish.title}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                                />
-                            </div>
-                            <div style={{ padding: '1.5rem' }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                                    <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-heading)' }}>{dish.title}</h3>
-                                    <span style={{ color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '1.1rem' }}>{dish.price}</span>
-                                </div>
-                                <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '1.5rem' }}>{dish.description}</p>
-                                <button className="btn btn-outline" style={{ width: '100%', borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}>
-                                    Order Now
-                                </button>
-                            </div>
-                        </motion.div>
+                        <DishCard key={dish.id} dish={dish} index={index} />
                     ))}
                 </div>
             </div>
