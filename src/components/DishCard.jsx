@@ -67,8 +67,10 @@ const DishCard = ({ dish, index }) => {
                             border: '1px solid var(--color-primary)',
                             color: 'var(--color-primary)',
                             fontSize: '0.95rem',
-                            padding: '12px 24px'
+                            padding: '12px 24px',
+                            transition: 'all 0.3s ease'
                         }}
+                        className="hover:bg-gradient-to-r hover:from-[var(--color-accent)] hover:to-[#bfa030] hover:text-white hover:border-[var(--color-accent)]"
                     >
                         Order Now
                     </MovingBorderButton>

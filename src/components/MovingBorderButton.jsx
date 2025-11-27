@@ -1,5 +1,5 @@
 import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const MovingBorderButton = ({ 
     children, 
@@ -13,6 +13,12 @@ const MovingBorderButton = ({
 }) => {
     const pathRef = useRef(null);
     const progress = useMotionValue(0);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+        if (onClick) onClick();
+    };
 
     useAnimationFrame((time) => {
         const length = pathRef.current?.getTotalLength();
@@ -85,19 +91,32 @@ const MovingBorderButton = ({
                     }}
                 />
             </motion.div>
-            <button
-                onClick={onClick}
+            <motion.button
+                onClick={handleClick}
                 className={`btn ${className}`}
+                whileHover={{ 
+                    scale: 1.05, 
+                    y: -2,
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
                 style={{
                     position: 'relative',
                     borderRadius: `calc(${borderRadius} * 0.96)`,
                     width: '100%',
                     height: '100%',
+                    cursor: 'pointer',
+                    backgroundColor: isClicked ? '#ff6b6b' : (buttonStyle.backgroundColor || 'transparent'),
+                    color: isClicked ? '#ffffff' : (buttonStyle.color || '#fff'),
+                    border: isClicked ? '2px solid #ff4757' : (buttonStyle.border || 'none'),
+                    boxShadow: isClicked ? '0 4px 15px rgba(255, 107, 107, 0.4)' : 'none',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     ...buttonStyle
                 }}
             >
                 {children}
-            </button>
+            </motion.button>
         </div>
     );
 };

@@ -83,6 +83,7 @@ const Navbar = () => {
                             flexDirection: 'column',
                             gap: '1.5rem',
                             alignItems: 'center'
+                           
                         }}
                     >
                         {navLinks.map((link) => (

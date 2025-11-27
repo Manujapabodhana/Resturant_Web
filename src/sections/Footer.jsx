@@ -29,7 +29,7 @@ const Footer = () => {
                             </li>
                             <li style={{ display: 'flex', gap: '0.8rem', color: '#aaa' }}>
                                 <Phone size={20} color="var(--color-accent)" />
-                                <span>(555) 123-4567</span>
+                                <span>(071 123-4567</span>
                             </li>
                             <li style={{ display: 'flex', gap: '0.8rem', color: '#aaa' }}>
                                 <Mail size={20} color="var(--color-accent)" />
