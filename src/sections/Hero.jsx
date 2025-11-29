@@ -106,6 +106,7 @@ const Hero = () => {
                     <MovingBorderButton
                         borderRadius="1.75rem"
                         duration={3000}
+                        onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })}
                         buttonStyle={{
                             fontSize: '1.1rem',
                             padding: '16px 40px',
